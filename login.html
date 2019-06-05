@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="statics/image/favicon.ico">
+
+        <title>EatHub</title>
+
+        <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+        <link href="statics/css/starter-template.css" rel="stylesheet">
+        <link href="statics/css/font-awesome.min.css' %}" rel="stylesheet">
+        <link href="statics/css/lightbox.css" rel="stylesheet"/>
+        <link href="statics/css/style-search.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    </head>
+    <body>
+            <div id="container">
+                <header>
+                    <nav class="navbar navbar-default navbar-fixed-top navbar-red" role="navigation">
+                        <div class="container">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="">
+                                    <img class="navbar-logo" src="/statics/image/logo_white.png"/>
+                                </a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.html">Inicio</a></li>
+                                    <li><a class="" href="receipes.html">Recetas</a></li>
+                                    <li><div class="input-group navbar-input-group fbSearch">
+                                    <form id="search-form" class="navbar-form navbar-left" role="search" method="get" action="">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control border-search border-rect-red" placeholder="Buscar..." name="srchterm" id="srchterm">
+                                            <span class="input-group-btn-red navbar-input-group-btn">
+                                                <button class="btn btn-default" type="submit">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    <div class="suggest">
+                                        <ul>
+                                        <li class="header"><span class="text"></span></li>
+                                            <li>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                    <span class="text"></span>
+                                                    <span class="category"></span>
+                                                </a>
+                                            </li>
+                                            <li class="header"><span class="text"></span></li>
+                                            <li>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                    <span class="text"></span>
+                                                    <span class="category"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </form>
+                                </div>
+                                <!-- Button trigger modal -->
+                                </li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <a class="btn btn-default btn-eathub-red" href="/login.html" role="button">Acceder</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!--/.nav-collapse -->
+                </header>
+                <main>
+                    <div class="container">
+
+                            <div class="col-md-6 login-welcome">
+                                <h1 class="login-welcome-title">Bienvenidos a Eathub</h1>
+
+                                <p class="login-welcome-text">¿Te gusta comer? Entonces Eathub es para ti. Explroa las recetas de cualquier usuarios y sus miles de variantes, crea y personaliza tu propia comida, y ¡Colabora a encontrar la mejor receta del mundo!</p>
+
+                                <svg class="patho path" version="1.1" id="eathub-logo" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                 y="0px" viewBox="0 0 612 612" enable-background="new 0 0 612 612" xml:space="preserve" style="height: 370px; width: auto">
+                                    <g id="logo">
+                                        <path id="base_2_" fill="#CC3E27" fill-opacity="0" stroke="#CC3E27" stroke-width="4" d="M149.2,431v41.3c0,15.3,12.4,27.7,27.7,27.7h264.7c15.3,0,27.7-12.4,27.7-27.7V431H149.2z"></path>
+                                        <path fill="#CC3E27" fill-opacity="0" stroke="#CC3E27" stroke-width="4" d="M469.2,142.2c-16.2,0-31.5,4.1-44.9,11.2c-19.8-43.9-64-74.5-115.4-74.5c-51.4,0-95.6,30.7-115.4,74.7
+                                          c-13.5-7.3-28.9-11.4-45.2-11.4c-52.7,0-95.3,42.7-95.3,95.3s42.7,95.3,95.3,95.3c0.3,0,0.5,0,0.8,0V399H288v-55.2
+                                          c-11.2-6.8-18.7-19.1-18.7-33.2c0-14.1,7.5-26.4,18.7-33.2v-53.6c-12-6.9-20-19.9-20-34.7c0-22.1,17.9-40,40-40s40,17.9,40,40
+                                          c0,14.8-8.1,27.8-20,34.7v53.6c0.9,0.5,1.7,1.1,2.6,1.7l48.5-22.7c1.2-13.8,9.5-26.6,22.9-32.8c20-9.4,43.9-0.7,53.2,19.3
+                                          c9.4,20,0.7,43.9-19.3,53.2c-13.4,6.3-28.6,4.5-39.9-3.5l-49.7,23.2c-1.6,11.8-8.6,22-18.4,27.9V399h141.2v-66.1
+                                          c52.7,0,95.3-42.7,95.3-95.3S521.9,142.2,469.2,142.2z"></path>
+                                    </g>
+                                    <g id="reflejo">
+                                        <path opacity="0" fill="#FFFFFF" d="M564.8,237.1c0-52.7-42.7-95.3-95.3-95.3c-16.3,0-31.6,4.1-45,11.2
+                                            c-19.8-44-64-74.5-115.4-74.5c-51.4,0-95.6,30.6-115.4,74.6c-13.4-7.2-28.8-11.3-45.1-11.3c-51.7,0-93.7,41.1-95.3,92.4
+                                            c3.7-47.5,44.8-85,95.1-85c15.4,0,30,3.5,42.9,9.8c0,0,0,0,0,0c-5.6,14.3-8.6,29.8-8.6,46c0,0.8,0,1.6,0,2.5
+                                            c1.3-66.4,57.4-119.8,126.5-119.8S434.3,141,435.6,207.4c0-0.8,0-1.6,0-2.5c0-16.3-3.1-32-8.7-46.3c0,0,0,0,0,0
+                                            c12.8-6.1,27.1-9.6,42.4-9.6c52.7,0,95.3,41.2,95.3,91.9c0,1.2,0,2.4-0.1,3.6C564.7,242.1,564.8,239.6,564.8,237.1z M425.7,155.8
+                                            C425.7,155.8,425.7,155.8,425.7,155.8C425.7,155.8,425.7,155.8,425.7,155.8z"></path>
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <div class="col-md-6 login-form">
+                                <div class="col-md-9 col-md-offset-2">
+                                    <div class="panel panel-body">
+                                        <form role="form" action="" method="post">
+                                            <div class="form-group">
+                                                <h2 class="login-form-heading">Inicie sesi&oacute;n</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" type="text" id="username" name="username" placeholder="Nombre o email" required autofocus>
+                                            </div>
+                                            <div class="form-group">
+                                                <input class="form-control" type="password" name="password" id="password" placeholder="Contraseña" required>
+                                            </div>
+                                            <button class="btn btn-lg btn-default btn-eathub login-form-submit" type="submit">Entrar</button>
+
+                                            <div class="login-form-signup">
+                                                <a href="create_user.html">Crear una cuenta</a>
+                                            </div>
+                                            <div class="login-form-forgot">
+                                                <a href="recover.html">Olvide mi contraseña</a>
+                                            </div>
+                                        </form>
+                                        <hr>
+                                        <!-- Social -->
+                                        <div class="form-group">
+                                            <h3 class="login-form-heading">Tambi&eacute;n puede acceder mediante</h3>
+                                            <!-- Google+ -->
+                                            <div class="form-group text-center">
+                                                <div id="googleBtn">
+                                                    <a class="btn btn-social btn-google-plus">
+                                                        <i class="fa fa-google-plus"></i>Acceder con Google+"</a>
+                                                </div>
+                                            </div>
+                                            <form id="google-plus" method="post" action="{% url 'social:complete' "google-plus" %}"
+                                                  style="display: none">
+                                                <input id="at" type="hidden" name="access_token" value=""/>
+                                                <input id="code" type="hidden" name="code" value=""/>
+                                            </form>
+                                            <!-- Facebook -->
+                                            <div class="form-group text-center">
+                                                <a class="btn btn-social btn-facebook"
+                                                   href="">
+                                                    <i class="fa fa-facebook"></i>Acceder con Facebook</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                            </div>
+
+                            <script>
+                                (function () {
+                                    var po = document.createElement('script');
+                                    po.type = 'text/javascript';
+                                    po.async = true;
+                                    po.src = 'https://apis.google.com/js/client:plusone.js?onload=render';
+                                    var s = document.getElementsByTagName('script')[0];
+                                    s.parentNode.insertBefore(po, s);
+                                })();
+
+                                function render() {
+                                    gapi.signin.render('googleBtn', {
+                                        'callback': 'signinCallback',
+                                        'clientid': "906981540507-tjpbba4glp7gd91gug9i7glefi04hj8i.apps.googleusercontent.com",
+                                        'cookiepolicy': 'single_host_origin',
+                                        'requestvisibleactions': 'http://schemas.google.com/AddActivity',
+                                        'scope': 'https://www.googleapis.com/auth/plus.login https://www.googleapis.com/auth/userinfo.email'
+                                        //'approvalprompt': 'force'
+
+                                    });
+                                }
+
+                                var signinCallback = function (result) {
+                                    if (result['g-oauth-window']) {
+                                        if (result['error']) {
+                                            alert('Google+ sign-in - An error happened:', result['error']);
+                                        } else {
+                                            $('#code').attr('value', result['code']);
+                                            $('#at').attr('value', result['access_token']);
+                                            $('#google-plus').submit();
+                                        }
+                                    }else {
+                                        gapi.auth.signOut();
+                                    }
+                                };
+                            </script>
+                            <script>
+                                $().ready(function () {
+                                    $("#logo").animate({"stroke-dashoffset": 0}, 3000, function () {
+                                        $(this).find("path").animate({"fill-opacity": 1.0}, function () {
+                                            $("#logo").find("path").animate({"stroke-width": 0});
+                                            $("#reflejo").find("path").animate({"opacity": 0.2});
+                                        });
+                                        $("#logo").find("path").animate({"stroke-width": 0});
+                                    });
+                                });
+                            </script>
+
+
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalFeedback"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="plus btn btn-default"
+                                       href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container -->
+                </main>
+                <footer class="hidden-xs hidden-sm">
+                    <div class="footer">
+                        <div class="col-md-4 footer-logo-container">
+                            <span class="footer-logo-helper"></span>
+                            <img class="footer-logo" src="/statics/image/logo_footer.png" class="img-circle">
+                        </div>
+                        <div class="col-md-8 footer-content">
+                            <div class="row">
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">T&eacute;minos y condiciones</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Sobre Eathub</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Equipo</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Contacto</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bootstrap core JavaScript
+                    ================================================== -->
+                    <!-- Placed at the end of the document so the pages load faster -->
+                    <script src="/statics/js/jquery.min.js"></script>
+                    <script src="/statics/js/bootstrap.min.js"></script>
+                    <script src="/statics/js/lightbox.min.js"></script>
+                    <script>
+                        $().ready(function () {
+                            //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
+                                        $(".footer-logo").hover(
+                                                function () {
+                                                    $(".footer-logo").animate({"margin-bottom": "-35px"}, 150)
+                                                },
+                                                function () {
+                                                    $(".footer-logo").animate({"margin-bottom": "-70px"}, 150)
+                                                }
+                                        );
+                        });
+                        var hideSuggest = function(event){
+                            $(".suggest").css("display","none").fadeOut(2000);
+                        }
+                        $("#srchterm").focus(function(){
+                           $(".suggest").css("display","block").fadeIn(2000);
+                        });
+                        $(".suggest").find("a").mouseenter(function(){
+                           $("#srchterm").off("blur");
+                        }).mouseleave(function(){
+                           $("#srchterm").blur(hideSuggest);
+                        });
+                        $("#srchterm").blur(hideSuggest);
+                        $("#srchterm").bind("input",function(){
+                           var urlR = '/search/recipe/?srchterm=' +$(this).val();
+                           $(".suggest").find(".category")[0].textContent=$(this).val();
+                           $(".suggest").find("a")[0].href=urlR;
+                           $(".suggest").find(".category")[1].textContent=$(this).val();
+                           $(".suggest").find("a")[1].href='/search/person/' +$(this).val();
+                        });
+                    </script>
+                </footer>
+        </div>
+    </body>
+</html>
