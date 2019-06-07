@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="statics/image/favicon.ico">
+
+        <title>EatHub</title>
+
+        <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+        <link href="statics/css/starter-template.css" rel="stylesheet">
+        <link href="statics/css/font-awesome.min.css" rel="stylesheet">
+        <link href="statics/css/lightbox.css" rel="stylesheet"/>
+        <link href="statics/css/style-search.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+        <link href="statics/css/bootstrap-select.min.css" rel="stylesheet">
+        <link href="statics/css/slider.css" rel="stylesheet">
+
+        <script src="/statics/js/jquery.min.js"></script>
+        <script src="/statics/js/bootstrap.min.js"></script>
+        <script src="/statics/js/lightbox.min.js"></script>
+        <script src="statics/js/bootstrap-slider.js"></script>
+        <script src="statics/js/bootstrap-select.min.js"></script>
+        <script type="text/javascript">
+            $().ready(function () {
+                $('select').selectpicker();
+                $('.slider').slider();
+            })
+        </script>
+
+        <script type="text/javascript">
+            // Gracias a http://hayageek.com/drag-and-drop-file-upload-jquery/
+            // Y a http://digipiph.com/blog/submitting-multipartform-data-using-jquery-and-ajax
+            var obj = $("#drop-target");
+            obj.on('dragenter', function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                $(this).css('border', '2px solid #0B85A1');
+            });
+            obj.on('dragover', function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+            });
+            obj.on('drop', function (e) {
+
+                $(this).css('border', '2px dotted #0B85A1');
+                e.preventDefault();
+                var files = e.originalEvent.dataTransfer.files;
+
+                //We need to send dropped files to Server
+                handleFileUpload(files, obj);
+            });
+
+            function handleFileUpload(files, obj) {
+                var fd = new FormData($('form')[0]);
+                fd.append('image', files[0]);
+                // Envía el csrf token con los datos de post, para que Django no lo interprete como un ataque
+                // Visto en: https://docs.djangoproject.com/en/dev/ref/contrib/csrf/#ajax
+                var csrftoken = getCookie('csrftoken');
+                $.ajaxSetup({
+                    crossDomain: false, // obviates need for sameOrigin test
+                    beforeSend: function (xhr, settings) {
+                        if (!csrfSafeMethod(settings.type)) {
+                            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                        }
+                    }
+                });
+                $.ajax({
+                    url: '{% url 'upload' %}',
+                    type: 'POST',
+                    data: fd,
+                    async: false,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    success: function (returndata) {
+                        var response = $.parseJSON(returndata);
+                        var $avatar = $("#avatar-target");
+                        $avatar.attr("src", response.url);
+                        $("#id_avatar_url").val($avatar.prop("src"));
+                        $("#id_avatar_id").val(response.id);
+                    }
+                });
+            }
+
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie != '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+            function checkTermsAndConds(){
+                 var check = $("#terms_conds").is(":checked");
+                 if(!check){
+                     $("#error_terms_conds").show();
+                     return false;
+                 }
+             }
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+        </script>
+
+    </head>
+    <body>
+            <div id="container">
+                <header>
+                    <nav class="navbar navbar-default navbar-fixed-top navbar-red" role="navigation">
+                        <div class="container">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="index.html">
+                                    <img class="navbar-logo" src="/statics/image/logo_white.png"/>
+                                </a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.html">Inicio</a></li>
+                                    <li><a class="" href="receipes.html">Recetas</a></li>
+                                    <li><div class="input-group navbar-input-group fbSearch">
+                                    <form id="search-form" class="navbar-form navbar-left" role="search" method="get" action="">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control border-search border-rect-red" placeholder="Buscar..." name="srchterm" id="srchterm">
+                                            <span class="input-group-btn-red navbar-input-group-btn">
+                                                <button class="btn btn-default" type="submit">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    <div class="suggest">
+                                        <ul>
+                                        <li class="header"><span class="text"></span></li>
+                                            <li>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                    <span class="text"></span>
+                                                    <span class="category"></span>
+                                                </a>
+                                            </li>
+                                            <li class="header"><span class="text"></span></li>
+                                            <li>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                    <span class="text"></span>
+                                                    <span class="category"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </form>
+                                </div>
+                                <!-- Button trigger modal -->
+                                </li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    
+                                    <a class="btn btn-default btn-eathub-red" href="/login.html" role="button">Acceder</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!--/.nav-collapse -->
+                </header>
+                <main>
+                    <div class="container">
+
+
+                        <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h1>Bienvenido a Eathub</h1>
+
+                            <form role="form well well-lg" class="form-horizontal" method="post" enctype="multipart/form-data">
+
+
+                            <legend></legend>
+                            <fieldset class="panel-body">
+
+                                <!-- Username -->
+                                <div class="form-group">
+                                    <label for="username"
+                                           class="col-sm-2 control-label">Nombre de usuario</label>
+
+                                    <div class="col-sm-3">
+
+                                        <input type="text" class="form-control" placeholder="Nombre de usuario"
+                                               name="username" id="username"
+                                               value="" >
+                                    </div>
+                                </div>
+
+
+                                <!-- Email -->
+                                <div class="form-group">
+                                    <label for="email" class="col-sm-2 control-label">Correo electr&oacute;nico</label>
+
+                                    <div class="col-sm-3">
+                                        <input type="email" class="form-control" placeholder="Correo electr&oacute;nico"
+                                               name="email" id="email"
+                                               value="">
+                                    </div>
+
+                                </div>
+
+                                <!-- Password -->
+                                <div class="form-group">
+                                    <label for="password"
+                                           class="col-sm-2 control-label">Contraseña</label>
+
+                                    <div class="col-sm-3">
+
+                                        <input type="password" class="form-control" placeholder="Contraseña"
+                                               name="password" id="password"
+                                               value="">
+                                    </div>
+
+                                </div>
+
+                                <!-- Password repeat -->
+                                <div class="form-group">
+                                    <label for="password_repeat"
+                                           class="col-sm-2 control-label">Repita la contraseña</label>
+
+                                    <div class="col-sm-3">
+
+                                        <input type="password" class="form-control" placeholder="Contraseña"
+                                               name="password_repeat" id="password_repeat"
+                                               value="">
+                                    </div>
+
+                                </div>
+                            </fieldset>
+
+                            <legend></legend>
+                            <fieldset class="panel-body">
+                                <!-- Display Name -->
+                                <div class="form-group">
+                                    <label for="display_name"
+                                           class="col-sm-2 control-label">Nombre a mostrar</label>
+
+                                    <div class="col-sm-3">
+
+                                        <input type="text" class="form-control" placeholder="Nombre a mostrar"
+                                               name="display_name" id="display_name"
+                                               value="">
+                                    </div>
+
+                                </div>
+
+                                <!-- Main Language -->
+                                <div class="form-group">
+                                    <label for="main_language"
+                                           class="col-sm-2 control-label">Idioma preferido</label>
+
+                                    <div class="col-sm-3">
+
+                                        <select class="form-control show-tick"
+                                                id="main_language" name="main_language">
+                                                <option value="spanish"
+                                                        selected
+                                                        >Español</option>
+                                                <option value="english"
+
+                                                                >Ingl&eacute;s</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <!-- Additional languages -->
+                                <div class="form-group">
+                                    <label for="additional_languages"
+                                           class="col-sm-2 control-label">Idioma adicional</label>
+
+                                    <div class="col-sm-3">
+                                        <select class="form-control show-tick" multiple data-live-search="true" title="{% trans "None selected" %}"
+                                                id="additional_languages" name="additional_languages">
+
+                                                <option value="spanish"
+                                                        selected
+                                                        >Español
+                                                </option>
+                                                <option value="english"
+
+                                                                >Ingl&eacute;s</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="form-group">
+                                    <label for="gender"
+                                           class="col-sm-2 control-label">G&eacute;nero</label>
+
+                                    <div class="col-sm-3">
+                                        <select class="form-control show-tick"
+                                                id="gender" name="gender">
+
+                                                <option value="man"
+
+                                                        selected
+
+                                                        >Hombre</option>
+                                                        <option value="woman"
+
+
+
+                                                                >Mujer</option>
+                                                                <option value="other"
+
+
+
+                                                                        >Otro</option>
+
+                                        </select>
+                                    </div>
+
+                                </div>
+
+                                <!-- Location -->
+                                <div class="form-group">
+                                    <label for="location"
+                                           class="col-sm-2 control-label">Localización</label>
+
+                                    <div class="col-sm-3">
+
+                                        <input type="text" class="form-control" placeholder="Ciudad"
+                                               name="location" id="location"
+                                               value="">
+                                    </div>
+
+                                </div>
+
+                                <!-- Website -->
+                                <div class="form-group">
+                                    <label for="website"
+                                           class="col-sm-2 control-label">Web</label>
+
+                                    <div class="col-sm-3">
+
+                                        <input type="text" class="form-control" placeholder="Web"
+                                               name="website" id="website"
+                                               value="">
+                                    </div>
+
+                                </div>
+
+                                <!-- Birth Date -->
+                                <div class="form-group">
+                                    <label for="birth_date"
+                                           class="col-sm-2 control-label">Fecha de nacimiento</label>
+
+                                    <div class="col-sm-3">
+                                        <input type="date" class="form-control"
+                                               name="birth_date" id="birth_date"
+                                               value="">
+                                    </div>
+
+                                </div>
+
+                                <!-- Avatar -->
+                                <div class="form-group">
+                                    <label for="avatar" class="col-sm-2 control-label">Foto de perfil</label>
+                                    <div class="col-sm-3">
+                                        <div id="drop-target" class="drag-and-drop avatar-drop">
+                                            <img id="avatar-target" class="img-rounded img-responsive"
+                                                 src="">
+                                            <input type="hidden" id="avatare" name="avatar_url">
+                                            <input type="hidden" id="avatar_id" name="avatar_id">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </fieldset>
+
+                            <legend>Preferencia de consumo</legend>
+                            <fieldset class="panel-body">
+                                <!-- Special conditions -->
+
+                                <!-- Tastes -->
+                                <div class="col-sm-5">
+                                    <h3>Sabores</h3>
+                                    <label for="salty" class="slider-label">Salado</label>
+
+                                    <div class="control-group">
+                                        <input type="number" class="form-control slider"
+                                               name="form.salty" id="salty"
+                                               data-slider-min="0"
+                                               data-slider-max="99"
+                                               data-slider-value="50"
+                                               data-slider-tooltip="hide"
+                                               data-slider-id="salty"
+                                               value="50"
+                                                >
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label for="sour" class="slider-label">Agrio</label>
+                                        <input type="number" class="form-control slider"
+                                               name="form.sour" id="sour"
+                                               data-slider-min="0"
+                                               data-slider-max="99"
+                                               data-slider-value="50"
+                                               data-slider-tooltip="hide"
+                                               data-slider-id="sour"
+                                               value="50"
+                                                >
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label for="bitter" class="slider-label">Amargo</label>
+                                        <input type="number" class="form-control slider"
+                                               name="form.bitter" id="bitter"
+                                               data-slider-min="0"
+                                               data-slider-max="99"
+                                               data-slider-value="50"
+                                               data-slider-tooltip="hide"
+                                               data-slider-id="bitter"
+                                               value="50"
+                                                >
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label for="sweet" class="slider-label">Dulce</label>
+                                        <input type="number" class="form-control slider"
+                                               name="form.sweet" id="sweet"
+                                               data-slider-min="0"
+                                               data-slider-max="99"
+                                               data-slider-value="50"
+                                               data-slider-tooltip="hide"
+                                               data-slider-id="sweet"
+                                               value="50"
+                                                >
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label for="spicy" class="slider-label">Picante</label>
+                                        <input type="number" class="form-control slider"
+                                               name="form.spicy" id="spicy"
+                                               data-slider-min="0"
+                                               data-slider-max="99"
+                                               data-slider-value="50"
+                                               data-slider-tooltip="hide"
+                                               data-slider-id="spicy"
+                                               value="50"
+                                                >
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <br />
+
+
+                             <div class="checkbox">
+                                 <label>
+                                     <input id="terms_conds" type="checkbox">He le&iacute;do y acepto<a class="termsandcond" href="terms_and_conditions.html"> los t&eacute;rminos y condiciones. </a>
+                                 </label>
+                             </div>
+
+                             <br />
+                             <br />
+
+
+                            <!-- Submit Button -->
+                            <div class="form-group">
+                                <label for="inputDisplayName" class="col-sm-1 control-label"></label>
+
+
+                                <div class="col-sm-3">
+                                    <input type="submit" class="btn btn-success" value="Enviar"/>
+                                </div>
+                            </div>
+                            </form>
+
+                            <form action="{% url 'upload' %}" method="post" enctype="multipart/form-data" id="avatar-form"
+                                  style="display: none">
+
+                            </form>
+                        </div>
+                        </div>
+
+
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalFeedback"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="plus btn btn-default"
+                                       href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container -->
+                </main>
+                <footer class="hidden-xs hidden-sm">
+                    <div class="footer">
+                        <div class="col-md-4 footer-logo-container">
+                            <span class="footer-logo-helper"></span>
+                            <img class="footer-logo" src="/statics/image/logo_footer.png" class="img-circle">
+                        </div>
+                        <div class="col-md-8 footer-content">
+                            <div class="row">
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">T&eacute;minos y condiciones</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Sobre Eathub</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Equipo</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Contacto</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </footer>
+        </div>
+    </body>
+</html>

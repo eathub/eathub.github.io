@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="statics/image/favicon.ico">
+
+        <title>EatHub</title>
+
+        <link href="statics/css/bootstrap.min.css" rel="stylesheet">
+        <link href="statics/css/starter-template.css" rel="stylesheet">
+        <link href="statics/css/font-awesome.min.css" rel="stylesheet">
+        <link href="statics/css/lightbox.css" rel="stylesheet"/>
+        <link href="statics/css/style-search.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+    </head>
+    <body>
+            <div id="container">
+                <header>
+                    <nav class="navbar navbar-default navbar-fixed-top navbar-red" role="navigation">
+                        <div class="container">
+                            <!-- Brand and toggle get grouped for better mobile display -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                    <span class="sr-only"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                                <a class="navbar-brand" href="index.html">
+                                    <img class="navbar-logo" src="/statics/image/logo_white.png"/>
+                                </a>
+                            </div>
+                            <!-- Collect the nav links, forms, and other content for toggling -->
+                            <div class="collapse navbar-collapse">
+                                <ul class="nav navbar-nav">
+                                    <li class="active"><a href="index.html">Inicio</a></li>
+                                    <li><a class="" href="receipes.html">Recetas</a></li>
+                                    <li><div class="input-group navbar-input-group fbSearch">
+                                    <form id="search-form" class="navbar-form navbar-left" role="search" method="get" action="">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control border-search border-rect-red" placeholder="Buscar..." name="srchterm" id="srchterm">
+                                            <span class="input-group-btn-red navbar-input-group-btn">
+                                                <button class="btn btn-default" type="submit">
+                                                    <i class="glyphicon glyphicon-search"></i>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    <div class="suggest">
+                                        <ul>
+                                        <li class="header"><span class="text"></span></li>
+                                            <li>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                    <span class="text"></span>
+                                                    <span class="category"></span>
+                                                </a>
+                                            </li>
+                                            <li class="header"><span class="text"></span></li>
+                                            <li>
+                                                <a href="">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                    <span class="text"></span>
+                                                    <span class="category"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </form>
+                                </div>
+                                <!-- Button trigger modal -->
+                                </li>
+                                </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li>
+                                        <div>
+                                            <a type="button" class="plus-bar btn btn-default" href="create_recipe.html">
+                                                <span class="glyphicon glyphicon-plus"></span> Añadir receta
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <a class="btn btn-default btn-eathub-red" href="/login.html" role="button">Acceder</a>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                    <!--/.nav-collapse -->
+                </header>
+                <main>
+                    <div class="container">
+
+                        <!-- Start Recipe -->
+                        <!-- Column Left -->
+
+                        <!-- Title -->
+                        <div class="col-md-8 col-md-offset-2">
+                        <h1 class="recipe-name">Piruleta de Fresa</h1>
+
+                            <h5 class="recipe-parent"><a href=""><i
+                                    class="fa fa-code-fork"></i> Hecho a partir de <span
+                                    class="recipe-parent-name">Rafa - Piruleta de lim&oacute;n</span></a>
+                            </h5>
+
+
+                        <div class="panel main-picture-padding row">
+                            <div id="carousel-example-generic" class="main-picture-carousel carousel slide"
+                                 data-ride="carousel">
+                                <!-- Indicators -->
+                                <ol class="carousel-indicators">
+
+                                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+
+                                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+
+
+                                </ol>
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner recipe-carousel-wrapper">
+                                    <div class="item active recipe-carousel-item"
+                                         style="background-image: url('statics/image/piruleta.jpg')">
+                                        <img src="statics/image/piruleta.jpg">
+
+                                        <div class="carousel-caption"></div>
+                                    </div>
+                                    <div class="item active recipe-carousel-item"
+                                         style="background-image: url('statics/image/piruleta.jpg')">
+                                        <img src="statics/image/piruleta.jpg">
+
+                                        <div class="carousel-caption"></div>
+                                    </div>
+                                    <div class="item active recipe-carousel-item"
+                                         style="background-image: url('statics/image/piruleta.jpg')">
+                                        <img src="statics/image/piruleta.jpg">
+
+                                        <div class="carousel-caption"></div>
+                                    </div>
+                                </div>
+
+                                <!-- Controls -->
+                                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                </a>
+                                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                </a>
+                            </div>
+
+                             <div class="recipe-affinity">
+
+                                </div>
+                                <div class="modal fade recipe-modal-affinity" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title">Selecciona el usuario</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                    <ul>
+
+
+
+                                                    </ul>
+
+                                                    <div class="modal-footer hide-divider">
+
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <!-- Fork overlay -->
+
+                                <div class="recipe-fork">
+                                    <a data-toggle="modal" data-target=".recipe-modal-children" class="btn btn-default recipe-fork-count"><i
+                                            class="fa fa-code-fork"></i> 0</a>
+
+
+                                </div>
+                                <div class="modal fade recipe-modal-children" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Receta derivada de</h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                    <div class="recipe-modal-children-empty">
+                                                        <span>No hay recetas derivadas a&uacute;n</span>
+
+                                                        <div>
+                                                            <a href="{% url 'clonerecipe' receta.id %}"
+                                                               class="btn btn-default btn-eathub"><i
+                                                                    class="fa fa-code-fork"></i> Clona esta receta</a>
+                                                        </div>
+                                                    </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            <!-- Author overlay -->
+                            <a class="recipe-author-link" href="{% url 'profile' receta.author.username %}">
+                                <div class="img-circle recipe-author recipe-author-picture-container">
+                                    <div class="img-circle recipe-author-picture"
+                                         style="background-image: url('statics/image/sergior.png')">
+                                        <img class="img-circle recipe-author"
+                                             src="statics/image/sergior.png">
+                                    </div>
+                                </div>
+                                <h5 class="recipe-author recipe-author-name">By Sergio R.</h5>
+                            </a>
+
+                            <!-- Votes overaly -->
+                            <div class="recipe-votes-container">
+                                <div class="recipe-votes">
+                                    <div class="recipe-votes-indicators">
+                                        <span class="recipe-votes-indicator"><i
+                                                class="fa fa-thumbs-up"></i><span
+                                                id="positive_votes">1</span></span>
+                                            <span class="recipe-votes-indicator"><i
+                                                    class="fa fa-thumbs-down"></i><span
+                                                    id="negative_votes">0</span></span>
+                                        <span id="recipe-votes-count" class="recipe-votes-count">1</span>
+                                    </div>
+
+                                    <div class="progress recipe-votes-progress">
+                                        <div id="por_pos" class="progress-bar progress-bar-success" style="width: 100%">
+                                        </div>
+                                        <div id="por_neg" class="progress-bar progress-bar-warning" style="width: 0%">
+                                        </div>
+                                    </div>
+
+                                    <div class="recipe-votes-buttons">
+                                        <a id="btn-positive" class="btn btn-default recipe-votes-like-btn"><i
+                                                class="fa fa-thumbs-up" ></i> Me gusta</a>
+                                        <a id="btn-negative" class="btn btn-default recipe-votes-like-btn" ><i
+                                                class="fa fa-thumbs-down"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                            <div class="row panel-body recipe-controls">
+                                <div class="col-md-4 col-md-offset-1">
+                                    <a href="{% url 'editrecipe' receta.id %}" class="btn btn-default btn-block btn-danger"><i
+                                            class="fa fa-edit"></i> Editar receta </a>
+                                </div>
+                                <div class="col-md-4 col-md-offset-2">
+                                    <a href="{% url 'deleterecipe' receta.id %}" class="btn btn-default btn-block btn-danger"><i
+                                            class="fa fa-trash-o"></i> Borrar receta </a>
+                                </div>
+                            </div>
+
+
+                        <div class="panel panel-body row recipe-description">
+                            <p class="text-soft"> La piruleta de fresa m&aacute;s rica del mundo. </p>
+                        </div>
+
+                        <div class="panel panel-body row">
+                            <div class="col-xs-4 recipe-data">
+
+                                    <p>Tiempo de preparación en minutos</p>
+                                    <p class="recipe-data-secondary">10</p>
+
+                            </div>
+                            <div class="col-xs-4 recipe-data">
+                                <p>Dificultad</p>
+
+                                <p class="recipe-data-secondary">F&aacute;cil</p>
+                            </div>
+                            <div class="col-xs-4 recipe-data">
+                                <p>Comensales</p>
+
+                                <p class="recipe-data-secondary">Sin comensales</p>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-6 recipe-ingredients-parent {% if not receta.notes %}col-md-offset-3{% endif %}">
+                                <div class="panel-body recipe-ingredients post-it-left">
+                                    <h3 class="recipe-panel-title">Ingredientes</h3>
+                                    <ul>
+
+                                            <li>Fresa</li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                                <div class="col-xs-6 recipe-notes-parent">
+                                    <div class="panel-body recipe-notes postit">
+                                        <h3 class="recipe-panel-title">Notas</h3>
+
+                                        <p>Cortar la fresa</p>
+                                    </div>
+                                </div>
+
+                        </div>
+
+                        <div class="recipe-step-list">
+
+
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 recipe-more-parent">
+                                <div class="panel panel-body recipe-more">
+                                    <h3 class="recipe-panel-title">M&aacute;s información</h3>
+
+                                        <div class="recipe-more-title">Tipo de comida:</div>
+                                        <span><a class="recipe-tag" href="">Ocasional</a></span>
+
+
+                                        <div class="recipe-more-title">Etiquetas:</div>
+
+                                            <span><a class="recipe-tag" href="">Dulce</a></span>
+
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6 recipe-tastes-parent">
+                                <div class="panel panel-body recipe-tastes">
+                                    <h3 class="recipe-panel-title">Sabores</h3>
+
+                                    <div class="recipe-tastes-list">
+                                        <div class="recipe-taste">
+                                            <span>Salado</span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" id="salty" role="progressbar" aria-valuenow="60"
+                                                     aria-valuemin="0"
+                                                     aria-valuemax="100" style="width: 0%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="recipe-taste">
+                                            <span>Agrio</span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" id="sour" role="progressbar" aria-valuenow="80"
+                                                     aria-valuemin="0"
+                                                     aria-valuemax="100" style="width: 5%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="recipe-taste">
+                                            <span>Amargo</span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" id="bitter" role="progressbar" aria-valuenow="60"
+                                                     aria-valuemin="0"
+                                                     aria-valuemax="100" style="width: 5%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="recipe-taste">
+                                            <span>Dulce</span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" id="sweet" role="progressbar" aria-valuenow="60"
+                                                     aria-valuemin="0"
+                                                     aria-valuemax="100" style="width: 90%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="recipe-taste">
+                                            <span>Picante</span>
+
+                                            <div class="progress">
+                                                <div class="progress-bar" id="spicy" role="progressbar" aria-valuenow="60"
+                                                     aria-valuemin="0"
+                                                     aria-valuemax="100" style="width: 0%;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row panel panel-body">
+                            <h3 class="recipe-panel-title">Comentarios</h3>
+
+                            <div class="recipe-comment-list">
+
+                                            <div class="recipe-comment">
+                                                <img class="img-circle recipe-comment-picture"
+                                                     src="statics/image/rafa.png">
+
+                                                <span class="recipe-comment-name">Rafa</span>
+                                                <span class="recipe-comment-date">1/6/2014</span>
+
+                                                <p class="text-soft">Muy rico :P</p>
+
+                                            </div>
+                                            <hr>
+
+
+                                    <div id="recipe-comment-form" class="recipe-comment-form">
+                                        <img class="img-circle recipe-comment-picture"
+                                             src="statics/image/sergior.png">
+
+                                        <form method="POST" action="{% url 'comment' receta.id %}">
+
+                                            <textarea class="form-control" name="text"
+                                                      placeholder="Escribe un comentario" rows="5"></textarea>
+                                            <input class="plus btn btn-default" type="submit" value="Enviar">
+                                        </form>
+                                    </div>
+
+                            </div>
+                        </div>
+
+
+                        </div>
+
+                        <script>
+                            var $positive = $("#btn-positive");
+                            var $negative = $("#btn-negative");
+                            var $positive_votes = $("#positive_votes")
+                            var $negative_votes = $("#negative_votes")
+                            var $total_count = $("#recipe-votes-count");
+                            var $error = $("#error-vote");
+                            var $ok = $("#ok-vote");
+                            var $por_pos = $("#por_pos");
+                            var $por_neg = $("#por_neg");
+
+                            function show_error(jqXHR, textStatus, errorThrown) {
+                                var result = $.parseJSON(jqXHR.responseText);
+                            }
+
+                            function vote_refresh(jqXHR, textStatus, errorThrown) {
+                                //actualizar conteo de votos sin necesidad de recargar la pagina
+                                $.get('{% url 'recipe_votes' receta.id %}', function (data) {
+                                    var result = $.parseJSON(data);
+                                    console.log(data);
+                                    $positive_votes.html(result.positives);
+                                    $negative_votes.html(result.negatives);
+                                    $total_count.html(result.total);
+                                    $por_pos.css("width", result.por_pos + '%');
+                                    $por_neg.css("width", result.por_neg + '%');
+                                })
+                            }
+
+                            var csrftoken = getCookie('csrftoken');
+
+                            // establecer valores por defecto utilizados en las peticiones ajax
+                            $.ajaxSetup({
+                                crossDomain: false, // obviates need for sameOrigin test
+                                //especificar pretratamiento del XMLHTTPRequest (en este caso, añadir cabecera CSRF)
+                                beforeSend: function (xhr, settings) {
+                                    if (!csrfSafeMethod(settings.type)) {
+                                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                                    }
+                                }
+                            });
+
+                            // funcion a ejecutar cuando el DOM este completamente cargado
+                            $(document).ready(function () {
+
+                                // por defecto los divs para indicar el resultado estan ocultos
+                                $error.hide();
+                                $ok.hide();
+
+                                // establece una función a ejecutar cuando se haga click sobre el elemento
+                                $positive.click(function (e) {
+                                    var data = {"recipe": '{{ receta.id }}', "type": "positive"};
+
+                                    $.ajax({    // Realizar peticion ajax
+                                        type: "POST",
+                                        url: '{% url 'vote' %}',
+                                        data: data,
+                                        dataType: "json",
+                                        // funcion ejecutada cuando la peticion haya tenido exito
+                                        success: vote_refresh,
+                                        // funcion ejecutada cuando se haya producido algun error
+                                        error: show_error
+                                    })
+                                });
+
+                                $negative.click(function (e) {
+                                    var data = {"recipe": '{{ receta.id }}', "type": "negative"};
+
+                                    $.ajax({
+                                        type: "POST",
+                                        url: '{% url 'vote' %}',
+                                        data: data,
+                                        dataType: "json",
+                                        success: vote_refresh,
+
+                                        error: show_error
+                                    })
+                                })
+                            });
+
+                            function getCookie(name) {
+                                var cookieValue = null;
+                                if (document.cookie && document.cookie != '') {
+                                    var cookies = document.cookie.split(';');
+                                    for (var i = 0; i < cookies.length; i++) {
+                                        var cookie = jQuery.trim(cookies[i]);
+                                        // Does this cookie string begin with the name we want?
+                                        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                            break;
+                                        }
+                                    }
+                                }
+                                return cookieValue;
+                            }
+                            function csrfSafeMethod(method) {
+                                // these HTTP methods do not require CSRF protection
+                                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+                            }
+                        </script>
+                        <script>
+                            $().ready(function () {
+                                $(".recipe-author-link").hover(
+                                        function () {
+                                            $(".recipe-author").addClass("hover");
+                                        },
+                                        function () {
+                                            $(".recipe-author").removeClass("hover");
+                                        }
+                                );
+
+                                //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
+                                $(".recipe-votes-container").hover(
+                                        function () {
+                                            $(".recipe-votes").animate({"margin-bottom": 0}, 150)
+                                        },
+                                        function () {
+                                            $(".recipe-votes").animate({"margin-bottom": "-40px"}, 150)
+                                        }
+                                );
+                            });
+                        </script>
+
+                    </div>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-labelledby="myModalFeedback"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h4 class="modal-title" id="myModalFeedback">Feedback</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                                <div class="modal-footer">
+                                    <a class="plus btn btn-default"
+                                       href="mailto:eathub.contact@gmail.com?subject=Feedback sobre eathub!"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container -->
+                </main>
+                <footer class="hidden-xs hidden-sm">
+                    <div class="footer">
+                        <div class="col-md-4 footer-logo-container">
+                            <span class="footer-logo-helper"></span>
+                            <img class="footer-logo" src="/statics/image/logo_footer.png" class="img-circle">
+                        </div>
+                        <div class="col-md-8 footer-content">
+                            <div class="row">
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">T&eacute;minos y condiciones</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Sobre Eathub</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Equipo</a></div>
+                                <div class="col-md-2 text-center"><a href="" class="footer-link">Contacto</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Bootstrap core JavaScript
+                    ================================================== -->
+                    <!-- Placed at the end of the document so the pages load faster -->
+                    <script src="/statics/js/jquery.min.js"></script>
+                    <script src="/statics/js/bootstrap.min.js"></script>
+                    <script src="/statics/js/lightbox.min.js"></script>
+                    <script>
+                        $().ready(function () {
+                            //XXX Cuidado, valores puestos a mano. Se podría animar con una clase usando jQueryUI
+                                        $(".footer-logo").hover(
+                                                function () {
+                                                    $(".footer-logo").animate({"margin-bottom": "-35px"}, 150)
+                                                },
+                                                function () {
+                                                    $(".footer-logo").animate({"margin-bottom": "-70px"}, 150)
+                                                }
+                                        );
+                        });
+                        var hideSuggest = function(event){
+                            $(".suggest").css("display","none").fadeOut(2000);
+                        }
+                        $("#srchterm").focus(function(){
+                           $(".suggest").css("display","block").fadeIn(2000);
+                        });
+                        $(".suggest").find("a").mouseenter(function(){
+                           $("#srchterm").off("blur");
+                        }).mouseleave(function(){
+                           $("#srchterm").blur(hideSuggest);
+                        });
+                        $("#srchterm").blur(hideSuggest);
+                        $("#srchterm").bind("input",function(){
+                           var urlR = '/search/recipe/?srchterm=' +$(this).val();
+                           $(".suggest").find(".category")[0].textContent=$(this).val();
+                           $(".suggest").find("a")[0].href=urlR;
+                           $(".suggest").find(".category")[1].textContent=$(this).val();
+                           $(".suggest").find("a")[1].href='/search/person/' +$(this).val();
+                        });
+                    </script>
+                </footer>
+        </div>
+    </body>
+</html>
